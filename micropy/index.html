@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Lighten Up</title>
+</head>
+<body>
+
+    <div class="jumbotron jumbotron-fluid" align="center">
+        <div class="container" >
+          <h1>Lighten Up Your Life</h1>
+          <p>With tech2secure Smart LED Lights</p>
+        </div>
+        <br><br><br>
+        <button type="button" onclick="turnon()" class="btn btn-primary">ON</button>
+        <button type="button" onclick="turnoff()" class="btn btn-success">OFF</button>
+    </div>
+
+    <script type="text/javascript">
+        function turnon() {
+              var xhttp = new XMLHttpRequest();
+              xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        let resp = this.responseText;
+                        console.log(resp)
+                    }
+                  };
+              xhttp.open("GET", "http://192.168.29.2/test?led=on", true);
+              xhttp.send();
+        }
+        function turnoff() {
+              var xhttp = new XMLHttpRequest();
+              xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        let resp = this.responseText;
+                        console.log(resp)
+                    }
+                  };
+              xhttp.open("GET", "http://192.168.29.2/test?led=off", true);
+              xhttp.send();
+        }
+    </script>
+</body>
+</html>
